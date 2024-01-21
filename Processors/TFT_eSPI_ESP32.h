@@ -13,6 +13,12 @@
 #include "driver/spi_master.h"
 #include "hal/gpio_ll.h"
 
+#if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0)
+  #include "hal/gpio_ll.h"
+  #include "soc/gpio_struct.h"
+  #include "driver/gpio.h"
+#endif
+
 #if !defined(CONFIG_IDF_TARGET_ESP32C3) && !defined(CONFIG_IDF_TARGET_ESP32S2) && !defined(CONFIG_IDF_TARGET_ESP32)
   #define CONFIG_IDF_TARGET_ESP32
 #endif
